@@ -22,10 +22,12 @@ services:
       - db
 
   front:
-    container_name: sapphire_front
+    container_name: sample_front
     build: front/
     command: npm run dev
     volumes:
       - ./front:/app
     ports:
       - 8080:3000
+    depends_on:
+      - back
