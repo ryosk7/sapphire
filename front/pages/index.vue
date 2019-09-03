@@ -1,15 +1,16 @@
 <template>
   <div>
-    <h1>Hello, {{ name }}</h1>
+    <h1>{{ data }}</h1>
   </div>
 </template>
 
 <script>
 export default {
   asyncData({ $axios, params }) {
-    return $axios.$get(`http://localhost:3000/users/${params.id}`)
+    return $axios.$get(`http://localhost:3000/users/`)
       .then((res) => {
-        return { name: res.name }
+        console.log(res)
+        return { data: res }
       })
   }
 }
