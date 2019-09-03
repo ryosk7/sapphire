@@ -11,7 +11,7 @@ services:
     ports:
       - '3316:3306'
     volumes:
-      - ./back/tmp/db:/var/lib/msql
+      - ./db/mysql/volumes:/var/lib/mysql
 
   back:
     container_name: sapphire_back
@@ -20,9 +20,11 @@ services:
       - ./back:/app
     depends_on:
       - db
+    ports:
+      - 3000:3000
 
   front:
-    container_name: sample_front
+    container_name: sapphire_front
     build: front/
     command: npm run dev
     volumes:

@@ -1,11 +1,13 @@
 <template>
-  <h1>Hello, {{ name }}</h1>
+  <div>
+    <h1>Hello, {{ name }}</h1>
+  </div>
 </template>
 
 <script>
 export default {
   asyncData({ $axios, params }) {
-    return $axios.$get(`http://back:3000/users/${params.id}`)
+    return $axios.$get(`http://localhost:3000/users/${params.id}`)
       .then((res) => {
         return { name: res.name }
       })
