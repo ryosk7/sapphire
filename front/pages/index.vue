@@ -1,6 +1,15 @@
 <template>
   <div>
-    <h1>{{ data }}</h1>
+    <div
+      v-for="(user, index) in users"
+      :key="index"
+    >
+      <ul class="list-group">
+        <li class="list-group-item">
+          <p>{{ user.name }}</p>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -10,7 +19,7 @@ export default {
     return $axios.$get(`http://localhost:3000/users/`)
       .then((res) => {
         console.log(res)
-        return { data: res }
+        return { users: res }
       })
   }
 }
