@@ -6,6 +6,7 @@
 - Ruby
 - Rails
 - Nuxt
+- mysql
 ## Setup
 ```sh
 $ docker-compose run --rm back rails db:create
